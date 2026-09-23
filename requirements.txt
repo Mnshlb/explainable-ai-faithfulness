@@ -1,0 +1,29 @@
+# Explainable AI project — pinned to versions verified on Python 3.14 / macOS arm64 (MPS)
+torch==2.14.0
+torchvision==0.29.0
+transformers==5.17.0
+peft==0.20.0
+# Imported directly by models.py to assert the LoRA classification head matches
+# its checkpoint before any explanation runs; it arrives transitively too, but a
+# direct import belongs in the manifest.
+safetensors==0.8.0
+numpy==2.5.3
+pandas==3.0.5
+scikit-learn==1.9.1
+scikit-image==0.26.0
+scipy==1.18.1
+pillow==12.3.0
+matplotlib==3.11.2
+lime==0.2.0.1
+shap==0.52.0
+captum==0.9.0
+pyyaml
+tqdm
+
+# Report -> PDF. WeasyPrint is used rather than a headless browser because it
+# implements CSS Paged Media (margin boxes, string-set, target-counter), which is
+# what gives the report running heads and a contents list with real page numbers.
+# It needs system libraries as well as the wheel:
+#     macOS   brew install pango
+#     Debian  apt-get install libpango-1.0-0 libpangoft2-1.0-0
+weasyprint==70.0

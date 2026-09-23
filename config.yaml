@@ -1,0 +1,140 @@
+# ============================================================================
+# Explainable AI — central configuration
+# Every path, seed and hyper-parameter used by the pipeline lives here so that
+# a run is fully described by this file plus the git revision.
+# ============================================================================
+
+seed: 42
+device: auto            # auto | mps | cuda | cpu
+
+paths:
+  data: Dataset
+  models: models
+  artifacts: artifacts
+
+tasks:
+
+  tweet:
+    name: Tweet Sentiment (3-class)
+    kind: text
+    model_dir: models/bert_sentiment_model
+    train_csv: Dataset/Tweet sentiment analysis/Processed/train.csv
+    test_csv:  Dataset/Tweet sentiment analysis/Processed/test.csv
+    text_col: text
+    label_col: sentiment
+    labels: [negative, neutral, positive]
+    max_length: 128
+    batch_size: 256
+    # LIME/SHAP budgets. Tweets are short (median 63 chars ~ 13 words), so
+    # 1000 perturbations already over-samples the 2^13 neighbourhood heavily.
+    lime_num_samples: 1000
+    shap_max_evals: 500
+    # How this checkpoint was produced. Recorded here rather than left in the
+    # notebook so that the report can state it and a reader can check it: the
+    # values are transcribed from Notebooks/Tweet sentiment/03_train_model.ipynb,
+    # which is the script that trained models/bert_sentiment_model.
+    train:
+      base_model: bert-base-uncased
+      strategy: full fine-tune — every parameter updated
+      optimizer: AdamW
+      lr: 5.0e-5
+      epochs: 3
+      batch_size: 16
+      max_length: 128
+      val_split: 0.10
+      seed: 42
+      hardware: Google Colab GPU
+      # The notebook was re-run without capturing cell output, so the per-epoch
+      # training loss is not recoverable. Accuracy is therefore measured here by
+      # re-scoring each split (xai.modelcard) rather than quoted from training.
+      per_epoch_metrics: not captured
+
+  movie:
+    name: Movie Review Sentiment (binary, counterfactually-augmented)
+    kind: text
+    base_model: bert-base-uncased
+    lora_dir: models/lora-bert-model          # extracted from models/lora_model.zip
+    lora_zip: models/lora_model.zip
+    train_csv: Dataset/Sentiment analysis-Movies Review/train.csv
+    val_csv:   Dataset/Sentiment analysis-Movies Review/val.csv
+    test_csv:  Dataset/Sentiment analysis-Movies Review/test.csv
+    text_col: text
+    label_col: label
+    labels: [negative, positive]
+    max_length: 512
+    batch_size: 96   # raised from 32: 512-token reviews x 2000 LIME perturbations were
+                     # making 63 sequential GPU round-trips per sample. Batching only;
+                     # attention masks make padded results equivalent.
+    # Reviews are long (mean 3.9k chars). Truncated to the model's real
+    # receptive field rather than the notebook's arbitrary 1000 characters.
+    char_limit: 2000
+    # Budgets must scale with the number of features. A truncated review is
+    # ~450 words, so 300 SHAP evaluations cannot even visit each token once
+    # and the partition explainer returns coarse groupings instead of token
+    # attributions; 500 LIME perturbations to fit 450 coefficients is
+    # interpolation, not estimation. These are sized against that count.
+    lime_num_samples: 2000
+    shap_max_evals: 1200
+    # The adapter's own hyper-parameters are authoritative in
+    # models/lora-bert-model/adapter_config.json and are read from there by
+    # xai.modelcard rather than duplicated. What that file does NOT record is
+    # the optimisation schedule, and the notebook in this repository loads the
+    # adapter rather than producing it, so those values are genuinely unknown
+    # and are reported as such instead of guessed.
+    train:
+      base_model: bert-base-uncased
+      strategy: LoRA — adapter and classification head trained, base frozen
+      hardware: Google Colab GPU
+      optimizer: not recorded
+      lr: not recorded
+      epochs: not recorded
+      batch_size: not recorded
+      per_epoch_metrics: not captured
+
+  glasses:
+    name: Glasses Detection (binary)
+    kind: image
+    # v2 is retrained here with a seeded, stratified, reproducible split.
+    # The original checkpoint (resnet18_glasses_full.pt) is kept for
+    # reference but its train/val split is unrecoverable, so no honest
+    # held-out accuracy can be quoted for it.
+    checkpoint: models/resnet18_glasses_v2.pt
+    legacy_checkpoint: models/resnet18_glasses_full.pt
+    split_file: artifacts/glasses/split.json
+    image_dir: Dataset/Glasses/image
+    labels: [no_glasses, glasses]           # ImageFolder order: neg=0, pos=1
+    image_size: 224
+    batch_size: 64
+    # Explanations always operate in raw pixel space ([0,1] HWC). Any
+    # normalisation the network needs is applied inside the model wrapper,
+    # so LIME superpixels and SHAP attributions stay interpretable as pixels.
+    normalize: true
+    gradcam_layer: layer4
+    lime_num_samples: 500
+    lime_num_features: 5
+    shap_n_samples: 25
+    shap_stdevs: 0.09
+
+    train:
+      split: [0.70, 0.15, 0.15]   # train / val / test, stratified, seeded
+      pretrained: true            # ImageNet initialisation
+      epochs: 10
+      batch_size: 32
+      lr: 1.0e-4
+      weight_decay: 1.0e-4
+      # The original model reached 99.8% train vs 93.9% val accuracy with no
+      # augmentation. These transforms directly target that gap.
+      augment:
+        hflip: 0.5
+        rotation: 10
+        color_jitter: 0.15
+
+explain:
+  methods_text:  [lime, shap, prototype]
+  methods_image: [gradcam, shap, lime]
+  # Records always store the COMPLETE attribution vector -- every token for
+  # text, every superpixel weight plus the dense map and segmentation for
+  # images. This setting only controls how many are drawn in the rendered
+  # cards; nothing is discarded on disk.
+  top_k_tokens: 10
+  n_prototypes: 3         # nearest training neighbours retrieved

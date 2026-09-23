@@ -1,0 +1,1488 @@
+{
+  "tweet": {
+    "task": "tweet",
+    "name": "Tweet Sentiment (3-class)",
+    "kind": "text",
+    "n_records": 2748,
+    "performance": {
+      "n": 2748,
+      "accuracy": 0.782,
+      "macro_f1": 0.7851,
+      "confusion_matrix": [
+        [
+          597,
+          163,
+          18
+        ],
+        [
+          136,
+          873,
+          103
+        ],
+        [
+          23,
+          156,
+          679
+        ]
+      ],
+      "labels": [
+        "negative",
+        "neutral",
+        "positive"
+      ],
+      "per_class": {
+        "negative": {
+          "precision": 0.7897,
+          "recall": 0.7674,
+          "f1": 0.7784,
+          "support": 778
+        },
+        "neutral": {
+          "precision": 0.7324,
+          "recall": 0.7851,
+          "f1": 0.7578,
+          "support": 1112
+        },
+        "positive": {
+          "precision": 0.8488,
+          "recall": 0.7914,
+          "f1": 0.8191,
+          "support": 858
+        }
+      },
+      "mean_confidence_correct": 0.9641,
+      "mean_confidence_wrong": 0.8847
+    },
+    "methods": {
+      "lime": {
+        "n_explained": 2748,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 4.5857,
+        "runtime_s_total": 12601.5,
+        "surrogate_r2_mean": 0.5728,
+        "surrogate_r2_below_0.3": 0.2354
+      },
+      "shap": {
+        "n_explained": 2748,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 1.2932,
+        "runtime_s_total": 3553.7
+      },
+      "prototype": {
+        "n_explained": 2748,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 0.0031,
+        "runtime_s_total": 8.6,
+        "neighbour_agreement_mean": 0.9238,
+        "all_neighbours_disagree": 0.0091
+      }
+    },
+    "quality_by_correctness": {
+      "lime.surrogate_r2": {
+        "correct": {
+          "n": 2149,
+          "mean": 0.5843
+        },
+        "wrong": {
+          "n": 599,
+          "mean": 0.5317
+        },
+        "delta": 0.0526
+      },
+      "prototype.neighbour_agreement": {
+        "correct": {
+          "n": 2149,
+          "mean": 0.9485
+        },
+        "wrong": {
+          "n": 599,
+          "mean": 0.8353
+        },
+        "delta": 0.1132
+      },
+      "shap.abs_sum_values": {
+        "correct": {
+          "n": 2149,
+          "mean": 0.5879
+        },
+        "wrong": {
+          "n": 599,
+          "mean": 0.4604
+        },
+        "delta": 0.1275
+      },
+      "confidence": {
+        "correct": {
+          "n": 2149,
+          "mean": 0.9641
+        },
+        "wrong": {
+          "n": 599,
+          "mean": 0.8847
+        }
+      }
+    },
+    "performance_by_split": {
+      "test": {
+        "n": 2748,
+        "accuracy": 0.782,
+        "macro_f1": 0.7851,
+        "confusion_matrix": [
+          [
+            597,
+            163,
+            18
+          ],
+          [
+            136,
+            873,
+            103
+          ],
+          [
+            23,
+            156,
+            679
+          ]
+        ],
+        "labels": [
+          "negative",
+          "neutral",
+          "positive"
+        ],
+        "per_class": {
+          "negative": {
+            "precision": 0.7897,
+            "recall": 0.7674,
+            "f1": 0.7784,
+            "support": 778
+          },
+          "neutral": {
+            "precision": 0.7324,
+            "recall": 0.7851,
+            "f1": 0.7578,
+            "support": 1112
+          },
+          "positive": {
+            "precision": 0.8488,
+            "recall": 0.7914,
+            "f1": 0.8191,
+            "support": 858
+          }
+        },
+        "mean_confidence_correct": 0.9641,
+        "mean_confidence_wrong": 0.8847
+      }
+    },
+    "agreement": [
+      {
+        "pair": "lime_vs_shap",
+        "n_compared": 2748,
+        "top_k": 5,
+        "jaccard_topk_mean": 0.392,
+        "top1_token_agreement": 0.5011,
+        "sign_agreement_shared_tokens": 0.6515
+      }
+    ],
+    "lowest_confidence": [
+      {
+        "sample_id": "e295122fe0",
+        "confidence": 0.334896,
+        "correct": false,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "bd56bae629",
+        "confidence": 0.389727,
+        "correct": false,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "5ebdc20153",
+        "confidence": 0.4015,
+        "correct": true,
+        "pred": "neutral",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "f573cc7b8b",
+        "confidence": 0.424428,
+        "correct": false,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "cf81e8e620",
+        "confidence": 0.436755,
+        "correct": false,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "68a56eca92",
+        "confidence": 0.437186,
+        "correct": false,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "36ab892bcc",
+        "confidence": 0.453162,
+        "correct": false,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "bcf1767c4a",
+        "confidence": 0.474618,
+        "correct": false,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "c0082eb0d8",
+        "confidence": 0.475161,
+        "correct": false,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "699ccfe91f",
+        "confidence": 0.48102,
+        "correct": false,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "c237b64754",
+        "confidence": 0.48264,
+        "correct": false,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "56437e0860",
+        "confidence": 0.48442,
+        "correct": false,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "aa20ff7392",
+        "confidence": 0.492676,
+        "correct": false,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "505e65fdd7",
+        "confidence": 0.499202,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      },
+      {
+        "sample_id": "3dfbdeaf79",
+        "confidence": 0.501939,
+        "correct": true,
+        "pred": "neutral",
+        "true": "neutral"
+      }
+    ],
+    "errors": [
+      {
+        "sample_id": "bc7fc4e62a",
+        "confidence": 0.99925,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "673f96af02",
+        "confidence": 0.658997,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "41deb82f7b",
+        "confidence": 0.994037,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "b0406dc4eb",
+        "confidence": 0.715474,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "3e50a6aa2a",
+        "confidence": 0.570255,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "561b44a42f",
+        "confidence": 0.551125,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "f782648201",
+        "confidence": 0.983244,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "6f57697455",
+        "confidence": 0.692697,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "aa51bfc57e",
+        "confidence": 0.988858,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "22b097900d",
+        "confidence": 0.961576,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "9b98c263cd",
+        "confidence": 0.978045,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "e871d4101f",
+        "confidence": 0.996818,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "9e275c23b0",
+        "confidence": 0.999521,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "bcee9ad1b5",
+        "confidence": 0.997145,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "fb809d9089",
+        "confidence": 0.999607,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "002e5f6b54",
+        "confidence": 0.972592,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "89e4eed832",
+        "confidence": 0.983802,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "c0e97b1036",
+        "confidence": 0.863098,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "5cb088aeee",
+        "confidence": 0.981023,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "1e2d66dd72",
+        "confidence": 0.991312,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "740b7134af",
+        "confidence": 0.752055,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "5d60a0e77e",
+        "confidence": 0.587933,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "a86a8ad3e4",
+        "confidence": 0.65614,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "8caf9852b4",
+        "confidence": 0.536766,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "41f4eb92b9",
+        "confidence": 0.988479,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "60d0bb5840",
+        "confidence": 0.889676,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "3415ab0cbb",
+        "confidence": 0.539401,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "a21015fcf5",
+        "confidence": 0.746431,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "08f426ac89",
+        "confidence": 0.543739,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "03296ed395",
+        "confidence": 0.770523,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "021fba6152",
+        "confidence": 0.921837,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "dd35a56813",
+        "confidence": 0.919176,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "1d07719e7d",
+        "confidence": 0.972685,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "e22c5b9096",
+        "confidence": 0.77599,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "0f3c565ea7",
+        "confidence": 0.909085,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "bf8ea1b445",
+        "confidence": 0.988768,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "1bdd6d727a",
+        "confidence": 0.977277,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "842c0b6812",
+        "confidence": 0.594075,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "ba6ed08298",
+        "confidence": 0.569248,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "bffc77b391",
+        "confidence": 0.972723,
+        "pred": "negative",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "b3230b4cb0",
+        "confidence": 0.957063,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "eaf2942ee8",
+        "confidence": 0.998863,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "7ad6e7eb8c",
+        "confidence": 0.998742,
+        "pred": "neutral",
+        "true": "negative"
+      },
+      {
+        "sample_id": "c121688561",
+        "confidence": 0.661545,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "9d930e1a59",
+        "confidence": 0.936237,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "dd2b941fef",
+        "confidence": 0.996617,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "7a66758e39",
+        "confidence": 0.993167,
+        "pred": "positive",
+        "true": "neutral"
+      },
+      {
+        "sample_id": "4cb14fb7e8",
+        "confidence": 0.995536,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "82831e923c",
+        "confidence": 0.912709,
+        "pred": "neutral",
+        "true": "positive"
+      },
+      {
+        "sample_id": "083ef66232",
+        "confidence": 0.999619,
+        "pred": "neutral",
+        "true": "negative"
+      }
+    ]
+  },
+  "movie": {
+    "task": "movie",
+    "name": "Movie Review Sentiment (binary, counterfactually-augmented)",
+    "kind": "text",
+    "n_records": 199,
+    "performance": {
+      "n": 199,
+      "accuracy": 0.7588,
+      "macro_f1": 0.7581,
+      "confusion_matrix": [
+        [
+          70,
+          30
+        ],
+        [
+          18,
+          81
+        ]
+      ],
+      "labels": [
+        "negative",
+        "positive"
+      ],
+      "per_class": {
+        "negative": {
+          "precision": 0.7955,
+          "recall": 0.7,
+          "f1": 0.7447,
+          "support": 100
+        },
+        "positive": {
+          "precision": 0.7297,
+          "recall": 0.8182,
+          "f1": 0.7714,
+          "support": 99
+        }
+      },
+      "mean_confidence_correct": 0.8036,
+      "mean_confidence_wrong": 0.6931
+    },
+    "methods": {
+      "lime": {
+        "n_explained": 199,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 78.8715,
+        "runtime_s_total": 15695.4,
+        "surrogate_r2_mean": 0.6064,
+        "surrogate_r2_below_0.3": 0.0754
+      },
+      "shap": {
+        "n_explained": 199,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 39.2149,
+        "runtime_s_total": 7803.8
+      },
+      "prototype": {
+        "n_explained": 199,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 0.0001,
+        "runtime_s_total": 0.0,
+        "neighbour_agreement_mean": 0.7454,
+        "all_neighbours_disagree": 0.0704
+      }
+    },
+    "quality_by_correctness": {
+      "lime.surrogate_r2": {
+        "correct": {
+          "n": 151,
+          "mean": 0.6403
+        },
+        "wrong": {
+          "n": 48,
+          "mean": 0.4998
+        },
+        "delta": 0.1405
+      },
+      "prototype.neighbour_agreement": {
+        "correct": {
+          "n": 151,
+          "mean": 0.8367
+        },
+        "wrong": {
+          "n": 48,
+          "mean": 0.4583
+        },
+        "delta": 0.3784
+      },
+      "shap.abs_sum_values": {
+        "correct": {
+          "n": 151,
+          "mean": 0.3019
+        },
+        "wrong": {
+          "n": 48,
+          "mean": 0.2194
+        },
+        "delta": 0.0825
+      },
+      "confidence": {
+        "correct": {
+          "n": 151,
+          "mean": 0.8036
+        },
+        "wrong": {
+          "n": 48,
+          "mean": 0.6931
+        }
+      }
+    },
+    "performance_by_split": {
+      "test": {
+        "n": 199,
+        "accuracy": 0.7588,
+        "macro_f1": 0.7581,
+        "confusion_matrix": [
+          [
+            70,
+            30
+          ],
+          [
+            18,
+            81
+          ]
+        ],
+        "labels": [
+          "negative",
+          "positive"
+        ],
+        "per_class": {
+          "negative": {
+            "precision": 0.7955,
+            "recall": 0.7,
+            "f1": 0.7447,
+            "support": 100
+          },
+          "positive": {
+            "precision": 0.7297,
+            "recall": 0.8182,
+            "f1": 0.7714,
+            "support": 99
+          }
+        },
+        "mean_confidence_correct": 0.8036,
+        "mean_confidence_wrong": 0.6931
+      }
+    },
+    "agreement": [
+      {
+        "pair": "lime_vs_shap",
+        "n_compared": 199,
+        "top_k": 5,
+        "jaccard_topk_mean": 0.0118,
+        "top1_token_agreement": 0.0,
+        "sign_agreement_shared_tokens": 0.5356
+      }
+    ],
+    "lowest_confidence": [
+      {
+        "sample_id": "movie_test_00061",
+        "confidence": 0.504681,
+        "correct": false,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00111",
+        "confidence": 0.507614,
+        "correct": false,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00086",
+        "confidence": 0.517959,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00097",
+        "confidence": 0.527761,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00176",
+        "confidence": 0.52846,
+        "correct": true,
+        "pred": "positive",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00035",
+        "confidence": 0.53195,
+        "correct": false,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00069",
+        "confidence": 0.533518,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00056",
+        "confidence": 0.533552,
+        "correct": false,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00054",
+        "confidence": 0.533998,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00149",
+        "confidence": 0.535977,
+        "correct": false,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00010",
+        "confidence": 0.543172,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00041",
+        "confidence": 0.546189,
+        "correct": false,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00021",
+        "confidence": 0.546239,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00163",
+        "confidence": 0.55692,
+        "correct": true,
+        "pred": "positive",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00001",
+        "confidence": 0.558844,
+        "correct": true,
+        "pred": "negative",
+        "true": "negative"
+      }
+    ],
+    "errors": [
+      {
+        "sample_id": "movie_test_00004",
+        "confidence": 0.618228,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00006",
+        "confidence": 0.626478,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00007",
+        "confidence": 0.707003,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00008",
+        "confidence": 0.734488,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00019",
+        "confidence": 0.689758,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00022",
+        "confidence": 0.654228,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00026",
+        "confidence": 0.841271,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00027",
+        "confidence": 0.566203,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00030",
+        "confidence": 0.597838,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00031",
+        "confidence": 0.602275,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00034",
+        "confidence": 0.696768,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00035",
+        "confidence": 0.53195,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00041",
+        "confidence": 0.546189,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00044",
+        "confidence": 0.756444,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00051",
+        "confidence": 0.880961,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00056",
+        "confidence": 0.533552,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00061",
+        "confidence": 0.504681,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00062",
+        "confidence": 0.766083,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00065",
+        "confidence": 0.61706,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00068",
+        "confidence": 0.78446,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00071",
+        "confidence": 0.861001,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00072",
+        "confidence": 0.88424,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00075",
+        "confidence": 0.848961,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00077",
+        "confidence": 0.704239,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00081",
+        "confidence": 0.854999,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00083",
+        "confidence": 0.683608,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00090",
+        "confidence": 0.626264,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00092",
+        "confidence": 0.706463,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00095",
+        "confidence": 0.70149,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00096",
+        "confidence": 0.753536,
+        "pred": "positive",
+        "true": "negative"
+      },
+      {
+        "sample_id": "movie_test_00103",
+        "confidence": 0.608812,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00111",
+        "confidence": 0.507614,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00113",
+        "confidence": 0.816084,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00120",
+        "confidence": 0.588906,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00132",
+        "confidence": 0.908845,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00134",
+        "confidence": 0.57331,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00137",
+        "confidence": 0.577108,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00140",
+        "confidence": 0.760353,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00142",
+        "confidence": 0.872384,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00148",
+        "confidence": 0.857198,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00149",
+        "confidence": 0.535977,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00159",
+        "confidence": 0.605847,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00168",
+        "confidence": 0.785695,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00169",
+        "confidence": 0.736471,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00171",
+        "confidence": 0.780823,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00189",
+        "confidence": 0.632467,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00193",
+        "confidence": 0.61567,
+        "pred": "negative",
+        "true": "positive"
+      },
+      {
+        "sample_id": "movie_test_00198",
+        "confidence": 0.625312,
+        "pred": "negative",
+        "true": "positive"
+      }
+    ]
+  },
+  "glasses": {
+    "task": "glasses",
+    "name": "Glasses Detection (binary)",
+    "kind": "image",
+    "n_records": 2614,
+    "performance": {
+      "n": 2614,
+      "accuracy": 0.9996,
+      "macro_f1": 0.9996,
+      "confusion_matrix": [
+        [
+          1306,
+          1
+        ],
+        [
+          0,
+          1307
+        ]
+      ],
+      "labels": [
+        "no_glasses",
+        "glasses"
+      ],
+      "per_class": {
+        "no_glasses": {
+          "precision": 1.0,
+          "recall": 0.9992,
+          "f1": 0.9996,
+          "support": 1307
+        },
+        "glasses": {
+          "precision": 0.9992,
+          "recall": 1.0,
+          "f1": 0.9996,
+          "support": 1307
+        }
+      },
+      "mean_confidence_correct": 0.9989,
+      "mean_confidence_wrong": 0.9999
+    },
+    "methods": {
+      "gradcam": {
+        "n_explained": 2614,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 0.0318,
+        "runtime_s_total": 83.2,
+        "top5pct_mass_mean": 0.166
+      },
+      "shap": {
+        "n_explained": 2614,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 0.2592,
+        "runtime_s_total": 677.4,
+        "convergence_delta_mean": 3.6263,
+        "top5pct_mass_mean": 0.3507
+      },
+      "lime": {
+        "n_explained": 2614,
+        "n_failed": 0,
+        "failure_rate": 0.0,
+        "runtime_s_mean": 2.5597,
+        "runtime_s_total": 6691.0,
+        "surrogate_r2_mean": 0.3527,
+        "surrogate_r2_below_0.3": 0.28,
+        "top5pct_mass_mean": 0.2131
+      }
+    },
+    "quality_by_correctness": {
+      "lime.surrogate_r2": {
+        "correct": {
+          "n": 2613,
+          "mean": 0.3526
+        },
+        "wrong": {
+          "n": 1,
+          "mean": 0.4755
+        },
+        "delta": -0.1229
+      },
+      "confidence": {
+        "correct": {
+          "n": 2613,
+          "mean": 0.9989
+        },
+        "wrong": {
+          "n": 1,
+          "mean": 0.9999
+        }
+      }
+    },
+    "performance_by_split": {
+      "test": {
+        "n": 392,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion_matrix": [
+          [
+            196,
+            0
+          ],
+          [
+            0,
+            196
+          ]
+        ],
+        "labels": [
+          "no_glasses",
+          "glasses"
+        ],
+        "per_class": {
+          "no_glasses": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 196
+          },
+          "glasses": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 196
+          }
+        },
+        "mean_confidence_correct": 0.9974,
+        "mean_confidence_wrong": null
+      },
+      "train": {
+        "n": 1830,
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "confusion_matrix": [
+          [
+            915,
+            0
+          ],
+          [
+            0,
+            915
+          ]
+        ],
+        "labels": [
+          "no_glasses",
+          "glasses"
+        ],
+        "per_class": {
+          "no_glasses": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 915
+          },
+          "glasses": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 915
+          }
+        },
+        "mean_confidence_correct": 0.9996,
+        "mean_confidence_wrong": null
+      },
+      "val": {
+        "n": 392,
+        "accuracy": 0.9974,
+        "macro_f1": 0.9974,
+        "confusion_matrix": [
+          [
+            195,
+            1
+          ],
+          [
+            0,
+            196
+          ]
+        ],
+        "labels": [
+          "no_glasses",
+          "glasses"
+        ],
+        "per_class": {
+          "no_glasses": {
+            "precision": 1.0,
+            "recall": 0.9949,
+            "f1": 0.9974,
+            "support": 196
+          },
+          "glasses": {
+            "precision": 0.9949,
+            "recall": 1.0,
+            "f1": 0.9975,
+            "support": 196
+          }
+        },
+        "mean_confidence_correct": 0.9974,
+        "mean_confidence_wrong": 0.9999
+      }
+    },
+    "agreement": [
+      {
+        "pair": "gradcam_vs_shap",
+        "n_compared": 2614,
+        "spearman_mean": 0.4879
+      },
+      {
+        "pair": "gradcam_vs_lime",
+        "n_compared": 2614,
+        "spearman_mean": 0.3156
+      },
+      {
+        "pair": "shap_vs_lime",
+        "n_compared": 2614,
+        "spearman_mean": 0.2091
+      }
+    ],
+    "lowest_confidence": [
+      {
+        "sample_id": "pos_23628",
+        "confidence": 0.536147,
+        "correct": true,
+        "pred": "glasses",
+        "true": "glasses"
+      },
+      {
+        "sample_id": "pos_29900",
+        "confidence": 0.562038,
+        "correct": true,
+        "pred": "glasses",
+        "true": "glasses"
+      },
+      {
+        "sample_id": "neg_09226",
+        "confidence": 0.807682,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_04774",
+        "confidence": 0.820296,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_23330",
+        "confidence": 0.841918,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_14651",
+        "confidence": 0.860246,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_27922",
+        "confidence": 0.905287,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_12789",
+        "confidence": 0.906787,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_08476",
+        "confidence": 0.913119,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_04331",
+        "confidence": 0.954647,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_12089",
+        "confidence": 0.957965,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_08449",
+        "confidence": 0.968414,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "neg_16516",
+        "confidence": 0.975211,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      },
+      {
+        "sample_id": "pos_19702",
+        "confidence": 0.976166,
+        "correct": true,
+        "pred": "glasses",
+        "true": "glasses"
+      },
+      {
+        "sample_id": "neg_24324",
+        "confidence": 0.977544,
+        "correct": true,
+        "pred": "no_glasses",
+        "true": "no_glasses"
+      }
+    ],
+    "errors": [
+      {
+        "sample_id": "neg_29801",
+        "confidence": 0.999949,
+        "pred": "glasses",
+        "true": "no_glasses"
+      }
+    ]
+  }
+}

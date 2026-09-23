@@ -1,0 +1,150 @@
+{
+  "tweet": {
+    "task": "tweet",
+    "name": "Tweet Sentiment (3-class)",
+    "kind": "text",
+    "labels": [
+      "negative",
+      "neutral",
+      "positive"
+    ],
+    "architecture": "BertForSequenceClassification",
+    "parameters": {
+      "total": 109484547,
+      "trained": 109484547,
+      "trained_pct": 100.0
+    },
+    "training": {
+      "base_model": "bert-base-uncased",
+      "strategy": "full fine-tune \u2014 every parameter updated",
+      "optimizer": "AdamW",
+      "lr": 5e-05,
+      "epochs": 3,
+      "batch_size": 16,
+      "max_length": 128,
+      "val_split": 0.1,
+      "seed": 42,
+      "hardware": "Google Colab GPU",
+      "per_epoch_metrics": "not captured"
+    },
+    "max_length": 128,
+    "accuracy_by_split": {
+      "train": {
+        "n": 24732,
+        "accuracy": 0.9715,
+        "seconds": 75.2
+      },
+      "test": {
+        "n": 2748,
+        "accuracy": 0.782,
+        "seconds": 8.1
+      }
+    }
+  },
+  "movie": {
+    "task": "movie",
+    "name": "Movie Review Sentiment (binary, counterfactually-augmented)",
+    "kind": "text",
+    "labels": [
+      "negative",
+      "positive"
+    ],
+    "architecture": "PeftModelForSequenceClassification",
+    "parameters": {
+      "total": 109780228,
+      "lora_adapter": 294912,
+      "classification_head": 3076,
+      "trained": 297988,
+      "trained_pct": 0.271
+    },
+    "training": {
+      "base_model": "bert-base-uncased",
+      "strategy": "LoRA \u2014 adapter and classification head trained, base frozen",
+      "hardware": "Google Colab GPU",
+      "optimizer": "not recorded",
+      "lr": "not recorded",
+      "epochs": "not recorded",
+      "batch_size": "not recorded",
+      "per_epoch_metrics": "not captured"
+    },
+    "lora": {
+      "r": 8,
+      "lora_alpha": 32,
+      "lora_dropout": 0.1,
+      "target_modules": [
+        "value",
+        "query"
+      ],
+      "bias": "none",
+      "task_type": "SEQ_CLS",
+      "base_model_name_or_path": "bert-base-uncased"
+    },
+    "max_length": 512,
+    "accuracy_by_split": {
+      "train": {
+        "n": 1600,
+        "accuracy": 0.7662,
+        "seconds": 61.4
+      },
+      "val": {
+        "n": 200,
+        "accuracy": 0.715,
+        "seconds": 7.2
+      },
+      "test": {
+        "n": 199,
+        "accuracy": 0.7588,
+        "seconds": 7.2
+      }
+    }
+  },
+  "glasses": {
+    "task": "glasses",
+    "name": "Glasses Detection (binary)",
+    "kind": "image",
+    "labels": [
+      "no_glasses",
+      "glasses"
+    ],
+    "architecture": "ResNet",
+    "parameters": {
+      "total": 11177538,
+      "trained": 11177538,
+      "trained_pct": 100.0
+    },
+    "training": {
+      "split": [
+        0.7,
+        0.15,
+        0.15
+      ],
+      "pretrained": true,
+      "epochs": 10,
+      "batch_size": 32,
+      "lr": 0.0001,
+      "weight_decay": 0.0001,
+      "augment": {
+        "hflip": 0.5,
+        "rotation": 10,
+        "color_jitter": 0.15
+      }
+    },
+    "image_size": 224,
+    "accuracy_by_split": {
+      "train": {
+        "n": 1830,
+        "accuracy": 1.0
+      },
+      "val": {
+        "n": 392,
+        "accuracy": 0.9974
+      },
+      "test": {
+        "n": 392,
+        "accuracy": 1.0
+      },
+      "generalisation_gap": 0.0,
+      "train_seconds": 1554.0
+    }
+  }
+}

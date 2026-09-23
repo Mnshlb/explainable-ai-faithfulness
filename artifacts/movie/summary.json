@@ -1,0 +1,557 @@
+{
+  "task": "movie",
+  "name": "Movie Review Sentiment (binary, counterfactually-augmented)",
+  "kind": "text",
+  "n_records": 199,
+  "performance": {
+    "n": 199,
+    "accuracy": 0.7588,
+    "macro_f1": 0.7581,
+    "confusion_matrix": [
+      [
+        70,
+        30
+      ],
+      [
+        18,
+        81
+      ]
+    ],
+    "labels": [
+      "negative",
+      "positive"
+    ],
+    "per_class": {
+      "negative": {
+        "precision": 0.7955,
+        "recall": 0.7,
+        "f1": 0.7447,
+        "support": 100
+      },
+      "positive": {
+        "precision": 0.7297,
+        "recall": 0.8182,
+        "f1": 0.7714,
+        "support": 99
+      }
+    },
+    "mean_confidence_correct": 0.8036,
+    "mean_confidence_wrong": 0.6931
+  },
+  "methods": {
+    "lime": {
+      "n_explained": 199,
+      "n_failed": 0,
+      "failure_rate": 0.0,
+      "runtime_s_mean": 78.8715,
+      "runtime_s_total": 15695.4,
+      "surrogate_r2_mean": 0.6064,
+      "surrogate_r2_below_0.3": 0.0754
+    },
+    "shap": {
+      "n_explained": 199,
+      "n_failed": 0,
+      "failure_rate": 0.0,
+      "runtime_s_mean": 39.2149,
+      "runtime_s_total": 7803.8
+    },
+    "prototype": {
+      "n_explained": 199,
+      "n_failed": 0,
+      "failure_rate": 0.0,
+      "runtime_s_mean": 0.0001,
+      "runtime_s_total": 0.0,
+      "neighbour_agreement_mean": 0.7454,
+      "all_neighbours_disagree": 0.0704
+    }
+  },
+  "quality_by_correctness": {
+    "lime.surrogate_r2": {
+      "correct": {
+        "n": 151,
+        "mean": 0.6403
+      },
+      "wrong": {
+        "n": 48,
+        "mean": 0.4998
+      },
+      "delta": 0.1405
+    },
+    "prototype.neighbour_agreement": {
+      "correct": {
+        "n": 151,
+        "mean": 0.8367
+      },
+      "wrong": {
+        "n": 48,
+        "mean": 0.4583
+      },
+      "delta": 0.3784
+    },
+    "shap.abs_sum_values": {
+      "correct": {
+        "n": 151,
+        "mean": 0.3019
+      },
+      "wrong": {
+        "n": 48,
+        "mean": 0.2194
+      },
+      "delta": 0.0825
+    },
+    "confidence": {
+      "correct": {
+        "n": 151,
+        "mean": 0.8036
+      },
+      "wrong": {
+        "n": 48,
+        "mean": 0.6931
+      }
+    }
+  },
+  "performance_by_split": {
+    "test": {
+      "n": 199,
+      "accuracy": 0.7588,
+      "macro_f1": 0.7581,
+      "confusion_matrix": [
+        [
+          70,
+          30
+        ],
+        [
+          18,
+          81
+        ]
+      ],
+      "labels": [
+        "negative",
+        "positive"
+      ],
+      "per_class": {
+        "negative": {
+          "precision": 0.7955,
+          "recall": 0.7,
+          "f1": 0.7447,
+          "support": 100
+        },
+        "positive": {
+          "precision": 0.7297,
+          "recall": 0.8182,
+          "f1": 0.7714,
+          "support": 99
+        }
+      },
+      "mean_confidence_correct": 0.8036,
+      "mean_confidence_wrong": 0.6931
+    }
+  },
+  "agreement": [
+    {
+      "pair": "lime_vs_shap",
+      "n_compared": 199,
+      "top_k": 5,
+      "jaccard_topk_mean": 0.0118,
+      "top1_token_agreement": 0.0,
+      "sign_agreement_shared_tokens": 0.5356
+    }
+  ],
+  "lowest_confidence": [
+    {
+      "sample_id": "movie_test_00061",
+      "confidence": 0.504681,
+      "correct": false,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00111",
+      "confidence": 0.507614,
+      "correct": false,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00086",
+      "confidence": 0.517959,
+      "correct": true,
+      "pred": "negative",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00097",
+      "confidence": 0.527761,
+      "correct": true,
+      "pred": "negative",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00176",
+      "confidence": 0.52846,
+      "correct": true,
+      "pred": "positive",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00035",
+      "confidence": 0.53195,
+      "correct": false,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00069",
+      "confidence": 0.533518,
+      "correct": true,
+      "pred": "negative",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00056",
+      "confidence": 0.533552,
+      "correct": false,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00054",
+      "confidence": 0.533998,
+      "correct": true,
+      "pred": "negative",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00149",
+      "confidence": 0.535977,
+      "correct": false,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00010",
+      "confidence": 0.543172,
+      "correct": true,
+      "pred": "negative",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00041",
+      "confidence": 0.546189,
+      "correct": false,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00021",
+      "confidence": 0.546239,
+      "correct": true,
+      "pred": "negative",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00163",
+      "confidence": 0.55692,
+      "correct": true,
+      "pred": "positive",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00001",
+      "confidence": 0.558844,
+      "correct": true,
+      "pred": "negative",
+      "true": "negative"
+    }
+  ],
+  "errors": [
+    {
+      "sample_id": "movie_test_00004",
+      "confidence": 0.618228,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00006",
+      "confidence": 0.626478,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00007",
+      "confidence": 0.707003,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00008",
+      "confidence": 0.734488,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00019",
+      "confidence": 0.689758,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00022",
+      "confidence": 0.654228,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00026",
+      "confidence": 0.841271,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00027",
+      "confidence": 0.566203,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00030",
+      "confidence": 0.597838,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00031",
+      "confidence": 0.602275,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00034",
+      "confidence": 0.696768,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00035",
+      "confidence": 0.53195,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00041",
+      "confidence": 0.546189,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00044",
+      "confidence": 0.756444,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00051",
+      "confidence": 0.880961,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00056",
+      "confidence": 0.533552,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00061",
+      "confidence": 0.504681,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00062",
+      "confidence": 0.766083,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00065",
+      "confidence": 0.61706,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00068",
+      "confidence": 0.78446,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00071",
+      "confidence": 0.861001,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00072",
+      "confidence": 0.88424,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00075",
+      "confidence": 0.848961,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00077",
+      "confidence": 0.704239,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00081",
+      "confidence": 0.854999,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00083",
+      "confidence": 0.683608,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00090",
+      "confidence": 0.626264,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00092",
+      "confidence": 0.706463,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00095",
+      "confidence": 0.70149,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00096",
+      "confidence": 0.753536,
+      "pred": "positive",
+      "true": "negative"
+    },
+    {
+      "sample_id": "movie_test_00103",
+      "confidence": 0.608812,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00111",
+      "confidence": 0.507614,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00113",
+      "confidence": 0.816084,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00120",
+      "confidence": 0.588906,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00132",
+      "confidence": 0.908845,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00134",
+      "confidence": 0.57331,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00137",
+      "confidence": 0.577108,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00140",
+      "confidence": 0.760353,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00142",
+      "confidence": 0.872384,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00148",
+      "confidence": 0.857198,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00149",
+      "confidence": 0.535977,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00159",
+      "confidence": 0.605847,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00168",
+      "confidence": 0.785695,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00169",
+      "confidence": 0.736471,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00171",
+      "confidence": 0.780823,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00189",
+      "confidence": 0.632467,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00193",
+      "confidence": 0.61567,
+      "pred": "negative",
+      "true": "positive"
+    },
+    {
+      "sample_id": "movie_test_00198",
+      "confidence": 0.625312,
+      "pred": "negative",
+      "true": "positive"
+    }
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "task": "glasses",
+  "name": "Glasses Detection (binary)",
+  "kind": "image",
+  "n_records": 2614,
+  "performance": {
+    "n": 2614,
+    "accuracy": 0.9996,
+    "macro_f1": 0.9996,
+    "confusion_matrix": [
+      [
+        1306,
+        1
+      ],
+      [
+        0,
+        1307
+      ]
+    ],
+    "labels": [
+      "no_glasses",
+      "glasses"
+    ],
+    "per_class": {
+      "no_glasses": {
+        "precision": 1.0,
+        "recall": 0.9992,
+        "f1": 0.9996,
+        "support": 1307
+      },
+      "glasses": {
+        "precision": 0.9992,
+        "recall": 1.0,
+        "f1": 0.9996,
+        "support": 1307
+      }
+    },
+    "mean_confidence_correct": 0.9989,
+    "mean_confidence_wrong": 0.9999
+  },
+  "methods": {
+    "gradcam": {
+      "n_explained": 2614,
+      "n_failed": 0,
+      "failure_rate": 0.0,
+      "runtime_s_mean": 0.0318,
+      "runtime_s_total": 83.2,
+      "top5pct_mass_mean": 0.166
+    },
+    "shap": {
+      "n_explained": 2614,
+      "n_failed": 0,
+      "failure_rate": 0.0,
+      "runtime_s_mean": 0.2592,
+      "runtime_s_total": 677.4,
+      "convergence_delta_mean": 3.6263,
+      "top5pct_mass_mean": 0.3507
+    },
+    "lime": {
+      "n_explained": 2614,
+      "n_failed": 0,
+      "failure_rate": 0.0,
+      "runtime_s_mean": 2.5597,
+      "runtime_s_total": 6691.0,
+      "surrogate_r2_mean": 0.3527,
+      "surrogate_r2_below_0.3": 0.28,
+      "top5pct_mass_mean": 0.2131
+    }
+  },
+  "quality_by_correctness": {
+    "lime.surrogate_r2": {
+      "correct": {
+        "n": 2613,
+        "mean": 0.3526
+      },
+      "wrong": {
+        "n": 1,
+        "mean": 0.4755
+      },
+      "delta": -0.1229
+    },
+    "confidence": {
+      "correct": {
+        "n": 2613,
+        "mean": 0.9989
+      },
+      "wrong": {
+        "n": 1,
+        "mean": 0.9999
+      }
+    }
+  },
+  "performance_by_split": {
+    "test": {
+      "n": 392,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "confusion_matrix": [
+        [
+          196,
+          0
+        ],
+        [
+          0,
+          196
+        ]
+      ],
+      "labels": [
+        "no_glasses",
+        "glasses"
+      ],
+      "per_class": {
+        "no_glasses": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 196
+        },
+        "glasses": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 196
+        }
+      },
+      "mean_confidence_correct": 0.9974,
+      "mean_confidence_wrong": null
+    },
+    "train": {
+      "n": 1830,
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "confusion_matrix": [
+        [
+          915,
+          0
+        ],
+        [
+          0,
+          915
+        ]
+      ],
+      "labels": [
+        "no_glasses",
+        "glasses"
+      ],
+      "per_class": {
+        "no_glasses": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 915
+        },
+        "glasses": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 915
+        }
+      },
+      "mean_confidence_correct": 0.9996,
+      "mean_confidence_wrong": null
+    },
+    "val": {
+      "n": 392,
+      "accuracy": 0.9974,
+      "macro_f1": 0.9974,
+      "confusion_matrix": [
+        [
+          195,
+          1
+        ],
+        [
+          0,
+          196
+        ]
+      ],
+      "labels": [
+        "no_glasses",
+        "glasses"
+      ],
+      "per_class": {
+        "no_glasses": {
+          "precision": 1.0,
+          "recall": 0.9949,
+          "f1": 0.9974,
+          "support": 196
+        },
+        "glasses": {
+          "precision": 0.9949,
+          "recall": 1.0,
+          "f1": 0.9975,
+          "support": 196
+        }
+      },
+      "mean_confidence_correct": 0.9974,
+      "mean_confidence_wrong": 0.9999
+    }
+  },
+  "agreement": [
+    {
+      "pair": "gradcam_vs_shap",
+      "n_compared": 2614,
+      "spearman_mean": 0.4879
+    },
+    {
+      "pair": "gradcam_vs_lime",
+      "n_compared": 2614,
+      "spearman_mean": 0.3156
+    },
+    {
+      "pair": "shap_vs_lime",
+      "n_compared": 2614,
+      "spearman_mean": 0.2091
+    }
+  ],
+  "lowest_confidence": [
+    {
+      "sample_id": "pos_23628",
+      "confidence": 0.536147,
+      "correct": true,
+      "pred": "glasses",
+      "true": "glasses"
+    },
+    {
+      "sample_id": "pos_29900",
+      "confidence": 0.562038,
+      "correct": true,
+      "pred": "glasses",
+      "true": "glasses"
+    },
+    {
+      "sample_id": "neg_09226",
+      "confidence": 0.807682,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_04774",
+      "confidence": 0.820296,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_23330",
+      "confidence": 0.841918,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_14651",
+      "confidence": 0.860246,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_27922",
+      "confidence": 0.905287,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_12789",
+      "confidence": 0.906787,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_08476",
+      "confidence": 0.913119,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_04331",
+      "confidence": 0.954647,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_12089",
+      "confidence": 0.957965,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_08449",
+      "confidence": 0.968414,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "neg_16516",
+      "confidence": 0.975211,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    },
+    {
+      "sample_id": "pos_19702",
+      "confidence": 0.976166,
+      "correct": true,
+      "pred": "glasses",
+      "true": "glasses"
+    },
+    {
+      "sample_id": "neg_24324",
+      "confidence": 0.977544,
+      "correct": true,
+      "pred": "no_glasses",
+      "true": "no_glasses"
+    }
+  ],
+  "errors": [
+    {
+      "sample_id": "neg_29801",
+      "confidence": 0.999949,
+      "pred": "glasses",
+      "true": "no_glasses"
+    }
+  ]
+}

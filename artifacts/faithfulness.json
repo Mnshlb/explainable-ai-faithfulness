@@ -1,0 +1,88 @@
+{
+  "tweet": {
+    "n_records": 2748,
+    "fractions": [
+      0.01,
+      0.05,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "methods": {
+      "lime": {
+        "comprehensiveness": 0.4248,
+        "sufficiency": 0.1457,
+        "n": 13740
+      },
+      "shap": {
+        "comprehensiveness": 0.4282,
+        "sufficiency": 0.1382,
+        "n": 13740
+      },
+      "random": {
+        "comprehensiveness": 0.1349,
+        "sufficiency": 0.4183,
+        "n": 13740
+      }
+    }
+  },
+  "movie": {
+    "n_records": 199,
+    "fractions": [
+      0.01,
+      0.05,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "methods": {
+      "lime": {
+        "comprehensiveness": 0.1022,
+        "sufficiency": 0.1965,
+        "n": 995
+      },
+      "shap": {
+        "comprehensiveness": 0.0881,
+        "sufficiency": 0.1553,
+        "n": 995
+      },
+      "random": {
+        "comprehensiveness": 0.079,
+        "sufficiency": 0.2302,
+        "n": 995
+      }
+    }
+  },
+  "glasses": {
+    "n_records": 2614,
+    "fractions": [
+      0.01,
+      0.05,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "methods": {
+      "gradcam": {
+        "comprehensiveness": 0.415,
+        "sufficiency": 0.1592,
+        "n": 13070
+      },
+      "shap": {
+        "comprehensiveness": 0.3004,
+        "sufficiency": 0.3213,
+        "n": 13070
+      },
+      "lime": {
+        "comprehensiveness": 0.3504,
+        "sufficiency": 0.2444,
+        "n": 13070
+      },
+      "random": {
+        "comprehensiveness": 0.1187,
+        "sufficiency": 0.4533,
+        "n": 13070
+      }
+    }
+  }
+}

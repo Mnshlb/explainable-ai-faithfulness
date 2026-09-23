@@ -1,0 +1,103 @@
+Explainable AI across Text and Vision
+Copyright (c) 2026 Manshul Budholiya
+
+This project is licensed under the MIT License; see LICENSE.
+
+It builds on third-party models and datasets whose terms are recorded below,
+including, as Apache License 2.0 section 4 requires, a statement of the changes
+made to the works it derives from.
+
+================================================================================
+MODELS
+================================================================================
+
+bert-base-uncased
+  Copyright The Google AI Language Team Authors.
+  Licensed under the Apache License, Version 2.0.
+  https://huggingface.co/google-bert/bert-base-uncased
+  https://www.apache.org/licenses/LICENSE-2.0
+
+  Modifications: two derivative models were produced from this checkpoint.
+    1. Tweet sentiment — all 109,484,547 parameters fine-tuned for 3 epochs
+       (AdamW, lr 5e-5, batch 16, max_length 128) with a 3-class head replacing
+       the pre-training head.
+    2. Movie review sentiment — base weights frozen; a LoRA adapter (rank 8,
+       alpha 32, dropout 0.1, applied to the query and value projections of
+       every attention layer) and a 2-class head were trained, together 297,988
+       parameters, 0.27% of the network.
+
+torchvision ResNet-18, ImageNet-pretrained weights (ResNet18_Weights.DEFAULT)
+  Copyright (c) Soumith Chintala 2016, and the PyTorch contributors.
+  Licensed under the BSD 3-Clause License.
+  https://github.com/pytorch/vision
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the conditions of the BSD 3-Clause
+  License are met. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+  CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES ARE DISCLAIMED.
+
+  Modifications: the final fully-connected layer was replaced with a 2-way
+  linear head and the network fine-tuned for 10 epochs (Adam, lr 1e-4, weight
+  decay 1e-4, batch 32) with horizontal flips, +/-10 degree rotation and colour
+  jitter, on a seeded stratified split.
+
+================================================================================
+DATASETS
+================================================================================
+
+None of the datasets below are redistributed in this repository. See
+scripts/get_data.py for how to obtain each from its original source.
+
+Tweet Sentiment Extraction
+  https://www.kaggle.com/competitions/tweet-sentiment-extraction
+  Subject to the Kaggle competition rules, which permit use for "academic
+  research and education, and other non-commercial purposes" and state: "You
+  agree not to transmit, duplicate, publish, redistribute or otherwise provide
+  or make available the Data to any party not participating in the Competition."
+
+  Accordingly this repository contains no tweet corpus, and no per-prediction
+  records for that task -- those reproduce the text in bulk. Aggregate
+  statistics derived from the corpus are included, as are three tweets quoted
+  as worked examples in the report.
+
+Counterfactually-Augmented Data (IMDb movie reviews)
+  Kaushik, D., Hovy, E., & Lipton, Z. C. (2020). Learning the Difference that
+  Makes a Difference with Counterfactually-Augmented Data. ICLR.
+  https://github.com/acmi-lab/counterfactually-augmented-data
+  Licensed under the Apache License, Version 2.0.
+
+Saliency-Bench (glasses detection images and human attention masks)
+  Zhang, Y., et al. (2025). Saliency-Bench: A Comprehensive Benchmark for
+  Evaluating Visual Explanations. arXiv:2310.08537.
+  https://xaidataset.github.io/
+
+  No licence is stated by the authors at the time of writing. The images and
+  attention masks are therefore not redistributed here, and the per-prediction
+  records for this task contain file paths and numerical attributions only.
+
+================================================================================
+CONTEXT AND CONTACT
+================================================================================
+
+This work was produced as coursework. The datasets above are used under the
+terms each publisher sets, are not redistributed here, and are obtained from
+their original sources via scripts/get_data.py.
+
+Saliency-Bench is credited to Zhang, Y., Song, J., Gu, S., Jiang, T., Pan, B.,
+Bai, G., & Zhao, L. (2025), Saliency-Bench: A Comprehensive Benchmark for
+Evaluating Visual Explanations, KDD '25. No saliency images derived from its
+face photographs are published here.
+
+If you are an author of any dataset or model used here and would like
+attribution corrected or anything removed, please open an issue.
+
+================================================================================
+METHODS
+================================================================================
+
+The explanation methods are used as published, via their reference
+implementations:
+
+  LIME       Ribeiro, M. T., Singh, S., & Guestrin, C. (2016). KDD.
+  SHAP       Lundberg, S. M., & Lee, S.-I. (2017). NeurIPS.
+  Grad-CAM   Selvaraju, R. R., et al. (2017). ICCV.

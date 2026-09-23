@@ -1,0 +1,473 @@
+{
+  "tweet": {
+    "kind": "text",
+    "n_records": 2748,
+    "token_composition": {
+      "top_k": 5,
+      "categories": [
+        "content word",
+        "function word",
+        "sentiment word",
+        "sub-word fragment",
+        "punctuation",
+        "number"
+      ],
+      "methods": {
+        "lime": {
+          "n_tokens": 13189,
+          "content word": 60.9,
+          "function word": 28.3,
+          "sentiment word": 9.8,
+          "sub-word fragment": 0.3,
+          "punctuation": 0.0,
+          "number": 0.7
+        },
+        "shap": {
+          "n_tokens": 13472,
+          "content word": 43.5,
+          "function word": 22.1,
+          "sentiment word": 9.5,
+          "sub-word fragment": 14.4,
+          "punctuation": 9.8,
+          "number": 0.7
+        }
+      }
+    },
+    "counter_evidence": {
+      "min_n": 8,
+      "words": {
+        "good": {
+          "n": 35,
+          "lime": 0.0252,
+          "shap": -0.0747
+        },
+        "love": {
+          "n": 23,
+          "lime": 0.1048,
+          "shap": -0.0509
+        },
+        "bad": {
+          "n": 19,
+          "lime": 0.0764,
+          "shap": -0.0241
+        },
+        "sorry": {
+          "n": 15,
+          "lime": 0.1844,
+          "shap": -0.0033
+        },
+        "fun": {
+          "n": 14,
+          "lime": 0.0023,
+          "shap": -0.1439
+        },
+        "happy": {
+          "n": 13,
+          "lime": 0.0962,
+          "shap": -0.0852
+        },
+        "miss": {
+          "n": 13,
+          "lime": -0.0241,
+          "shap": -0.1716
+        },
+        "sad": {
+          "n": 10,
+          "lime": 0.0927,
+          "shap": -0.0254
+        },
+        "sick": {
+          "n": 10,
+          "lime": -0.0594,
+          "shap": -0.1415
+        },
+        "great": {
+          "n": 10,
+          "lime": 0.1117,
+          "shap": 0.0164
+        },
+        "awesome": {
+          "n": 10,
+          "lime": -0.0896,
+          "shap": -0.1968
+        },
+        "cool": {
+          "n": 9,
+          "lime": -0.0902,
+          "shap": -0.1848
+        },
+        "thanks": {
+          "n": 9,
+          "lime": -0.0943,
+          "shap": -0.2045
+        },
+        "hate": {
+          "n": 8,
+          "lime": 0.0827,
+          "shap": 0.0371
+        }
+      }
+    },
+    "contrast": {
+      "methods": {
+        "lime": 0.545,
+        "shap": 0.5818
+      },
+      "n": 255,
+      "indifferent": 0.5,
+      "test": {
+        "comparison": "shap - lime",
+        "diff": 0.0368,
+        "ci_low": 0.0132,
+        "ci_high": 0.0597,
+        "p": 0.002,
+        "n": 255
+      }
+    },
+    "negation": {
+      "methods": {
+        "lime": {
+          "n": 433,
+          "normalised_rank": 0.3756,
+          "mass_share": 0.1215
+        },
+        "shap": {
+          "n": 380,
+          "normalised_rank": 0.3894,
+          "mass_share": 0.1117
+        }
+      },
+      "note": "normalised rank: 0 = the method's single most important feature"
+    },
+    "error_detection": {
+      "n_predictions": 2748,
+      "n_errors": 599,
+      "target_far": 0.1,
+      "signals": {
+        "lime": {
+          "label": "LIME surrogate R\u00b2",
+          "roc_auc": 0.5536,
+          "distinct_values": 2179,
+          "recall_at_far": 0.0918,
+          "realised_far": 0.1005
+        },
+        "shap": {
+          "label": "SHAP |sum of values|",
+          "roc_auc": 0.5991,
+          "distinct_values": 2613,
+          "recall_at_far": 0.0718,
+          "realised_far": 0.1
+        },
+        "prototype": {
+          "label": "prototype agreement",
+          "roc_auc": 0.6164,
+          "distinct_values": 4,
+          "recall_at_far": 0.3489,
+          "realised_far": 0.1201
+        },
+        "confidence": {
+          "label": "model confidence",
+          "roc_auc": 0.7263,
+          "distinct_values": 2473,
+          "recall_at_far": 0.3422,
+          "realised_far": 0.1
+        }
+      },
+      "overlap": {
+        "lime|shap": {
+          "jaccard": 0.1951,
+          "both": 16,
+          "only_lime": 39,
+          "only_shap": 27
+        },
+        "lime|prototype": {
+          "jaccard": 0.0476,
+          "both": 12,
+          "only_lime": 43,
+          "only_prototype": 197
+        },
+        "shap|prototype": {
+          "jaccard": 0.0,
+          "both": 0,
+          "only_shap": 43,
+          "only_prototype": 209
+        }
+      },
+      "union_recall": 0.4658,
+      "best_single_recall": 0.3489,
+      "prototype_only": 197
+    }
+  },
+  "movie": {
+    "kind": "text",
+    "n_records": 199,
+    "token_composition": {
+      "top_k": 5,
+      "categories": [
+        "content word",
+        "function word",
+        "sentiment word",
+        "sub-word fragment",
+        "punctuation",
+        "number"
+      ],
+      "methods": {
+        "lime": {
+          "n_tokens": 995,
+          "content word": 72.4,
+          "function word": 20.5,
+          "sentiment word": 4.3,
+          "sub-word fragment": 2.2,
+          "punctuation": 0.0,
+          "number": 0.6
+        },
+        "shap": {
+          "n_tokens": 995,
+          "content word": 41.3,
+          "function word": 24.1,
+          "sentiment word": 0.7,
+          "sub-word fragment": 9.1,
+          "punctuation": 24.5,
+          "number": 0.2
+        }
+      }
+    },
+    "counter_evidence": {
+      "min_n": 8,
+      "words": {
+        "good": {
+          "n": 41,
+          "lime": -0.0029,
+          "shap": 0.0014
+        },
+        "bad": {
+          "n": 23,
+          "lime": -0.0065,
+          "shap": -0.0003
+        },
+        "love": {
+          "n": 20,
+          "lime": -0.0125,
+          "shap": 0.0016
+        },
+        "best": {
+          "n": 18,
+          "lime": -0.0021,
+          "shap": 0.0006
+        },
+        "great": {
+          "n": 14,
+          "lime": -0.0083,
+          "shap": 0.0012
+        },
+        "lost": {
+          "n": 10,
+          "lime": -0.0003,
+          "shap": -0.0007
+        },
+        "fun": {
+          "n": 9,
+          "lime": 0.0017,
+          "shap": 0.0012
+        },
+        "nice": {
+          "n": 8,
+          "lime": -0.0046,
+          "shap": 0.0011
+        }
+      }
+    },
+    "contrast": {
+      "methods": {
+        "lime": 0.6615,
+        "shap": 0.6789
+      },
+      "n": 182,
+      "indifferent": 0.5,
+      "test": {
+        "comparison": "shap - lime",
+        "diff": 0.0174,
+        "ci_low": 0.0112,
+        "ci_high": 0.0235,
+        "p": 0.0001,
+        "n": 182
+      }
+    },
+    "negation": {
+      "methods": {
+        "lime": {
+          "n": 177,
+          "normalised_rank": 0.4192,
+          "mass_share": 0.0098
+        },
+        "shap": {
+          "n": 178,
+          "normalised_rank": 0.5074,
+          "mass_share": 0.0078
+        }
+      },
+      "note": "normalised rank: 0 = the method's single most important feature"
+    },
+    "error_detection": {
+      "n_predictions": 199,
+      "n_errors": 48,
+      "target_far": 0.1,
+      "signals": {
+        "lime": {
+          "label": "LIME surrogate R\u00b2",
+          "roc_auc": 0.7037,
+          "distinct_values": 194,
+          "recall_at_far": 0.1458,
+          "realised_far": 0.106
+        },
+        "shap": {
+          "label": "SHAP |sum of values|",
+          "roc_auc": 0.6053,
+          "distinct_values": 199,
+          "recall_at_far": 0.1875,
+          "realised_far": 0.106
+        },
+        "prototype": {
+          "label": "prototype agreement",
+          "roc_auc": 0.8036,
+          "distinct_values": 4,
+          "recall_at_far": 0.8542,
+          "realised_far": 0.3841
+        },
+        "confidence": {
+          "label": "model confidence",
+          "roc_auc": 0.7536,
+          "distinct_values": 198,
+          "recall_at_far": 0.2083,
+          "realised_far": 0.106
+        }
+      },
+      "overlap": {
+        "lime|shap": {
+          "jaccard": 0.0,
+          "both": 0,
+          "only_lime": 7,
+          "only_shap": 9
+        },
+        "lime|prototype": {
+          "jaccard": 0.1163,
+          "both": 5,
+          "only_lime": 2,
+          "only_prototype": 36
+        },
+        "shap|prototype": {
+          "jaccard": 0.2195,
+          "both": 9,
+          "only_shap": 0,
+          "only_prototype": 32
+        }
+      },
+      "union_recall": 0.8958,
+      "best_single_recall": 0.8542,
+      "prototype_only": 27
+    }
+  },
+  "glasses": {
+    "kind": "image",
+    "n_records": 2614,
+    "shape": {
+      "n_images": 2614,
+      "top_frac": 0.05,
+      "methods": {
+        "gradcam": {
+          "n_components": 1.0,
+          "mass_in_largest": 1.0,
+          "centroid_row": 118.97
+        },
+        "shap": {
+          "n_components": 882.42,
+          "mass_in_largest": 0.16,
+          "centroid_row": 108.33
+        },
+        "lime": {
+          "n_components": 1.46,
+          "mass_in_largest": 0.87,
+          "centroid_row": 111.42
+        }
+      }
+    }
+  },
+  "cross": {
+    "budget": {
+      "threshold_evals_per_feature": 7.0,
+      "threshold_note": "Declared, not fitted: it separates the highest failing point from the lowest passing one. Five points do not support a fitted threshold.",
+      "points": [
+        {
+          "task": "movie",
+          "method": "shap",
+          "budget": 1200.0,
+          "n_features_mean": 430.1,
+          "evals_per_feature": 2.79,
+          "comprehensiveness": 0.0881,
+          "ratio_vs_random": 1.12,
+          "budget_kind": "perturbation"
+        },
+        {
+          "task": "movie",
+          "method": "lime",
+          "budget": 2000.0,
+          "n_features_mean": 338.0,
+          "evals_per_feature": 5.92,
+          "comprehensiveness": 0.1022,
+          "ratio_vs_random": 1.29,
+          "budget_kind": "perturbation"
+        },
+        {
+          "task": "glasses",
+          "method": "lime",
+          "budget": 500.0,
+          "n_features_mean": 67.5,
+          "evals_per_feature": 7.41,
+          "comprehensiveness": 0.3504,
+          "ratio_vs_random": 2.95,
+          "budget_kind": "perturbation"
+        },
+        {
+          "task": "tweet",
+          "method": "shap",
+          "budget": 500.0,
+          "n_features_mean": 18.7,
+          "evals_per_feature": 26.68,
+          "comprehensiveness": 0.4282,
+          "ratio_vs_random": 3.17,
+          "budget_kind": "perturbation"
+        },
+        {
+          "task": "tweet",
+          "method": "lime",
+          "budget": 1000.0,
+          "n_features_mean": 13.4,
+          "evals_per_feature": 74.44,
+          "comprehensiveness": 0.4248,
+          "ratio_vs_random": 3.15,
+          "budget_kind": "perturbation"
+        },
+        {
+          "task": "glasses",
+          "method": "gradcam",
+          "budget": null,
+          "n_features_mean": null,
+          "evals_per_feature": null,
+          "comprehensiveness": 0.415,
+          "ratio_vs_random": 3.5,
+          "budget_kind": "gradient"
+        },
+        {
+          "task": "glasses",
+          "method": "shap",
+          "budget": 25.0,
+          "n_features_mean": null,
+          "evals_per_feature": null,
+          "comprehensiveness": 0.3004,
+          "ratio_vs_random": 2.53,
+          "budget_kind": "gradient"
+        }
+      ]
+    }
+  }
+}

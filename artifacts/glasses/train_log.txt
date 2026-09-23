@@ -1,0 +1,23 @@
+device=mps  seed=42  epochs=10
+images: 2614  classes: Counter({'no_glasses': 1307, 'glasses': 1307})
+split -> train=1830  val=392  test=392  (written to artifacts/glasses/split.json)
+epoch  1/10  loss 0.0953  train 0.9667  val 0.9898  <- best
+epoch  2/10  loss 0.0199  train 0.9940  val 0.9898
+epoch  3/10  loss 0.0113  train 0.9956  val 0.9949  <- best
+epoch  4/10  loss 0.0084  train 0.9973  val 0.9923
+epoch  5/10  loss 0.0032  train 0.9995  val 0.9898
+epoch  6/10  loss 0.0021  train 0.9995  val 0.9974  <- best
+epoch  7/10  loss 0.0179  train 0.9945  val 0.9974
+epoch  8/10  loss 0.0023  train 0.9995  val 0.9974
+epoch  9/10  loss 0.0019  train 0.9995  val 0.9923
+epoch 10/10  loss 0.0009  train 1.0000  val 0.9974
+
+selected by val accuracy = 0.9974
+TEST accuracy = 1.0000  (n=392)
+train accuracy (no augmentation) = 1.0000
+generalisation gap = +0.0000
+confusion matrix (rows=true ['no_glasses', 'glasses']): [[196, 0], [0, 196]]
+
+saved models/resnet18_glasses_v2.pt
+saved artifacts/glasses/training_metrics.json
+total time 25.9 min
