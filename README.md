@@ -123,10 +123,15 @@ twelve tweets appear in the report as four worked examples with their retrieved
 neighbours — quotation with analysis, which is what a paper does.
 
 The movie data is Apache 2.0 and is the one corpus whose derived records are published in
-full. The glasses dataset states no licence and its images are photographs of identifiable
-people, so neither the images nor any saliency visualisation derived from them is
+full.
+
+The glasses images are **CelebA-HQ**, reaching this project via CelebA and Saliency-Bench.
+CelebA's terms permit "non-commercial research purposes only", state "You agree not to
+further copy, publish or distribute any portion", and note that the photographs "are not
+property of MMLAB" — so no party in that chain holds the copyright, and none could grant
+rights over them. Neither the images nor any saliency visualisation computed on them is
 published here; the per-prediction records for that task carry file paths and numerical
-attributions only.
+attributions only. `THIRD-PARTY-DATA.md` has the full chain.
 
 **Weights** are on Hugging Face rather than here — it is built for them, and it keeps a
 418 MB checkpoint out of git. Each carries a model card generated from
@@ -371,8 +376,16 @@ appears here. The glasses dataset states no licence and its images are
 photographs of identifiable people, so no saliency images derived from them are
 published — the dataset is linked and credited instead.
 
-If you are an author of a dataset or model used here and would like attribution
-corrected or anything removed, please open an issue.
+`THIRD-PARTY-DATA.md` sets out in full what was used, whose it is, and why some
+material the work depends on is deliberately absent. In short: the glasses
+images are CelebA-HQ, and no party between the original photographers and this
+project holds their copyright — so none could grant rights over them, and
+CelebA's terms permit internal copies rather than publication. That chapter is
+therefore published as numbers rather than pictures.
+
+If you are an author of a dataset or model used here, or hold rights in any of
+the underlying material, and would like attribution corrected or anything
+removed, please open an issue.
 
 ## Environment
 

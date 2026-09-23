@@ -57,8 +57,8 @@ Tweet Sentiment Extraction
 
   Accordingly this repository contains no tweet corpus, and no per-prediction
   records for that task -- those reproduce the text in bulk. Aggregate
-  statistics derived from the corpus are included, as are three tweets quoted
-  as worked examples in the report.
+  statistics derived from the corpus are included, as are twelve tweets shown as
+  four worked examples with their retrieved neighbours in the report.
 
 Counterfactually-Augmented Data (IMDb movie reviews)
   Kaushik, D., Hovy, E., & Lipton, Z. C. (2020). Learning the Difference that
@@ -71,9 +71,34 @@ Saliency-Bench (glasses detection images and human attention masks)
   Evaluating Visual Explanations. arXiv:2310.08537.
   https://xaidataset.github.io/
 
-  No licence is stated by the authors at the time of writing. The images and
-  attention masks are therefore not redistributed here, and the per-prediction
-  records for this task contain file paths and numerical attributions only.
+  No licence is stated by the Saliency-Bench authors. The images in its glasses
+  split are CelebA-HQ, reaching this project through a chain in which no party
+  holds the photographs' copyright:
+
+    photographers and agencies    the copyright
+    CelebA  (MMLAB, CUHK)         aggregation and attribute labelling
+    CelebA-HQ  (Karras et al.)    the high-resolution derivation
+    Saliency-Bench                the glasses split and attention annotations
+
+  CelebA's terms state that it "is available for non-commercial research
+  purposes only", that "You agree not to further copy, publish or distribute any
+  portion of the CelebA dataset", and that "All images of the CelebA dataset are
+  obtained from the Internet which are not property of MMLAB, The Chinese
+  University of Hong Kong."
+
+  Neither the images nor any saliency visualisation computed on them is
+  redistributed here: no party in that chain could grant rights over the
+  photographs, and the terms permit internal copies rather than publication. The
+  per-prediction records for this task contain file paths and numerical
+  attributions only. See THIRD-PARTY-DATA.md.
+
+CelebA / CelebA-HQ
+  Liu, Z., Luo, P., Wang, X., & Tang, X. (2015). Deep Learning Face Attributes
+  in the Wild. ICCV.
+  Karras, T., Aila, T., Laine, S., & Lehtinen, J. (2018). Progressive Growing of
+  GANs for Improved Quality, Stability, and Variation. ICLR.
+  https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
+  Non-commercial research use only; not redistributed here.
 
 ================================================================================
 CONTEXT AND CONTACT
@@ -84,9 +109,8 @@ terms each publisher sets, are not redistributed here, and are obtained from
 their original sources via scripts/get_data.py.
 
 Saliency-Bench is credited to Zhang, Y., Song, J., Gu, S., Jiang, T., Pan, B.,
-Bai, G., & Zhao, L. (2025), Saliency-Bench: A Comprehensive Benchmark for
-Evaluating Visual Explanations, KDD '25. No saliency images derived from its
-face photographs are published here.
+Bai, G., & Zhao, L. (2025), KDD '25. No face photographs, and no saliency images
+derived from them, are published here -- see THIRD-PARTY-DATA.md for why.
 
 If you are an author of any dataset or model used here and would like
 attribution corrected or anything removed, please open an issue.
