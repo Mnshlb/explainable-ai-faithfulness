@@ -394,4 +394,12 @@ Falls back to CUDA or CPU automatically via `config.yaml`'s `device: auto`.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+**All rights reserved** — see [LICENSE](LICENSE).
+
+This repository is published so the work can be read and assessed. It is not
+open source: the code is my own and no licence to use it is granted. You are
+welcome to read it, and to cite it with attribution. If you want to do anything
+more, open an issue and ask.
+
+The third-party models, datasets and libraries it depends on keep their own
+terms — see [NOTICE](NOTICE) and [THIRD-PARTY-DATA.md](THIRD-PARTY-DATA.md).

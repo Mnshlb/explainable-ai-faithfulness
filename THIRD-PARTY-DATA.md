@@ -92,10 +92,12 @@ weights are published on Hugging Face rather than here.
 ## What *is* mine
 
 Everything written for this project — `src/`, `scripts/`, `config.yaml`, the
-report and its figures — is under the **MIT License** in `LICENSE`.
+report and its figures — is my own work, copyright reserved. See `LICENSE`: it
+is published to be read and assessed, not licensed for use.
 
-The distinction is the point of this file: the code is offered without
-restriction; the data it operates on was never mine to offer.
+So the two halves of this repository are closed for different reasons, and the
+distinction is worth keeping straight. The **data** was never mine to offer.
+The **code** is mine, and I am not offering it.
 
 ## If you hold rights in any of this
 
