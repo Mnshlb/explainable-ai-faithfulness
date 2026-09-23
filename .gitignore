@@ -57,15 +57,10 @@ artifacts/*.log
 # corpus are not the corpus, so artifacts/tweet/summary.json and the
 # behavioural results stay; the text itself does not.
 #
-# The report quotes three tweets as worked examples, which is ordinary
-# scholarly quotation rather than redistribution.
+# The report quotes twelve tweets as four worked examples with their retrieved
+# neighbours, which is ordinary scholarly quotation rather than redistribution.
 # ---------------------------------------------------------------------------
 artifacts/tweet/predictions.jsonl
-outputs/Tweet/
-
-# Despite its name this file holds tweet prototype results, not movie ones --
-# 15 verbatim tweets with their nearest training neighbours.
-outputs/Movie reviews/test_prototypes_results.csv
 
 # ---------------------------------------------------------------------------
 # Glasses saliency images -- excluded on two independent grounds, neither size.
@@ -83,7 +78,6 @@ outputs/Movie reviews/test_prototypes_results.csv
 # remain, and the report's three worked examples stay on the ordinary basis
 # that a paper may illustrate its findings.
 # ---------------------------------------------------------------------------
-outputs/glasses/
 
 # These three notebooks' saved cell outputs display 84 tweets between them.
 # They stay on disk exactly as written -- nothing is stripped or lost -- they
@@ -108,6 +102,21 @@ Report/ExAI_Report_v2.html
 #                           these, so they are what makes it auditable
 #   artifacts/<task>/summary.json, split.json, training_metrics.json
 #   Notebooks/            — the superseded notebook version, kept as the record
-#                           of what the rebuild replaced
-#   outputs/              — that version's results
+#                           of what the rebuild replaced (three tweet notebooks
+#                           excepted, see above)
 # ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# The remaining notebook-era outputs: LIME and SHAP explanation pages for the
+# movie task. These are not merely superseded -- they are the output of the
+# defect this rebuild corrects. The original notebook loaded the LoRA folder
+# with BertForSequenceClassification.from_pretrained, which silently ignores
+# the adapter's fine-tuned head, so every one of these pages explains a
+# randomly initialised classifier. models.py now asserts the head matches its
+# checkpoint before any explanation runs.
+#
+# They stay on disk; publishing 60 MB of explanations of a broken model would
+# be worse than useless. The report's corrections table records what happened
+# and why, which is the part worth keeping.
+# ---------------------------------------------------------------------------
+outputs/

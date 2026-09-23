@@ -1,8 +1,8 @@
 # Language statistics
 #
 # GitHub sizes its language bar by bytes, and this repository carries 44 MB of
-# notebooks and 69 MB of generated HTML against 350 KB of Python. Left alone it
-# would be reported as an HTML project, which is the opposite of what it is.
+# notebooks against 350 KB of Python. Left alone it would be reported as a
+# Jupyter project, which is not what the work is.
 #
 # Nothing here hides content — every file stays browsable. These markers only
 # keep generated and archival material out of the language statistics and out of
@@ -13,9 +13,7 @@
 Notebooks/**            linguist-documentation
 Notebooks/**            linguist-generated=true
 
-# That version's results, and this one's: rendered explanations and panels, not
-# authored source.
-outputs/**              linguist-vendored
+# Rendered output, not authored source.
 Report/**               linguist-documentation
 
 # Per-prediction records: data, not code.
@@ -37,8 +35,7 @@ artifacts/**            linguist-generated=true
 *.npy                   binary
 *.safetensors           binary
 
-# Archival material is stored exactly as it was produced. These files are a
+# Archival material is stored exactly as it was produced. These notebooks are a
 # record of an earlier version of this work, so rewriting their line endings —
 # even harmlessly — would make them no longer that record.
-outputs/**              -text
 Notebooks/**            -text
